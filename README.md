@@ -102,4 +102,4 @@ Designed to support scheduling (cron / task scheduler).
 - REST API for data access
 - Lightweight dashboard for visualization
 - Deployed and publicly accessible
-Handles real-world data issues
+- Handles real-world data issues
