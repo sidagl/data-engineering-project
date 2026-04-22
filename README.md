@@ -14,22 +14,22 @@ This project solves that by:
 - Collecting raw data from a public source
 - Cleaning and standardizing it
 - Storing it in a queryable database
-- Exposing it via API endpoints
+- Exposing it via API endpoints and a lightweight dashboard
 
 ---
 
 ## 🧱 Architecture
-Scraper → Raw Data → Cleaning → Database → API → User
+Scraper → Raw Data → Cleaning → Database → API → Dashboard → User
 
 ---
 
 ## ⚙️ Tech Stack
-- Python
-- BeautifulSoup (Web Scraping)
-- Pandas (Data Cleaning)
-- SQLite (Database)
-- Flask (API)
-- Render (Deployment)
+- Python  
+- BeautifulSoup (Web Scraping)  
+- Pandas (Data Cleaning)  
+- SQLite (Database)  
+- Flask (API & Dashboard)  
+- Render (Deployment)  
 
 ---
 
@@ -51,18 +51,29 @@ Scraper → Raw Data → Cleaning → Database → API → User
 4. **API Layer**
    - Exposes endpoints for querying data
 
+5. **Dashboard**
+   - Displays product data in a simple UI
+   - Fetches data dynamically from API
+
 ---
 
-## 🌐 Live API
+## 🌐 Live Demo
 
-Base URL: https://data-engineering-project-qjlv.onrender.com/
+### 🔗 API Base URL:
+https://data-engineering-project-qjlv.onrender.com/
 
-### Endpoints:
-- `/products` → Get all products
-- `/avg-price` → Get average price
-- `/top-rated` → Top-rated products
-- `/products/rating/<rating>` → Filter by rating
-- `/search?q=keyword` → Search products
+### 📊 Dashboard (Recommended View):
+https://data-engineering-project-qjlv.onrender.com/dashboard
+
+---
+
+## 📡 API Endpoints
+
+- `/products` → Get all products  
+- `/avg-price` → Get average price  
+- `/top-rated` → Top-rated products  
+- `/products/rating/<rating>` → Filter by rating  
+- `/search?q=keyword` → Search products  
 
 ---
 
@@ -74,36 +85,21 @@ python run_pipeline.py
 python api/app.py
 ```
 
----
-
 ## 🔁 Automation
 
 Pipeline can be executed via:
+
 ```bash
 python run_pipeline.py
 ```
 
 Designed to support scheduling (cron / task scheduler).
 
----
-
 ## 📌 Key Highlights
+
 - End-to-end ETL pipeline
 - Automated workflow
 - REST API for data access
+- Lightweight dashboard for visualization
 - Deployed and publicly accessible
-- Handles real-world data issues
-
----
-
-## 💡 Future Improvements
-- Add PostgreSQL for scalability
-- Integrate ML for price prediction
-- Add dashboard (frontend)
-- Implement real-time scraping
-
----
-
-## 👨‍💻 Author
-
-Siddharth Agarwal
+Handles real-world data issues
