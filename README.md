@@ -1,4 +1,4 @@
-# 📊 Data Engineering Pipeline — Product Insights API
+# 📊 Data Engineering Pipeline - Product Insights API
 
 ## 🚀 Overview
 This project demonstrates an end-to-end data engineering pipeline that collects, processes, and serves structured data for business use.
