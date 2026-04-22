@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from flask import render_template
 import sqlite3
 
 app = Flask(__name__)
@@ -20,6 +21,9 @@ def home():
             "/search?q=keyword"
         ]
     }
+@app.route("/dashboard")
+def dashboard():
+    return render_template("index.html")
 
 # -----------------------------
 # 1. Get all products
@@ -100,3 +104,4 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
