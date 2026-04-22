@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify, request
 from flask import render_template
 import sqlite3
@@ -25,9 +26,7 @@ def home():
 def dashboard():
     return render_template("index.html")
 
-# -----------------------------
-# 1. Get all products
-# -----------------------------
+#all products
 @app.route("/products")
 def get_products():
     conn = get_db_connection()
@@ -37,9 +36,7 @@ def get_products():
     return jsonify([dict(row) for row in products])
 
 
-# -----------------------------
-# 2. Filter by rating
-# -----------------------------
+#Filter by rating
 @app.route("/products/rating/<int:rating>")
 def get_by_rating(rating):
     conn = get_db_connection()
@@ -49,11 +46,7 @@ def get_by_rating(rating):
     conn.close()
 
     return jsonify([dict(row) for row in products])
-
-
-# -----------------------------
-# 3. Average price
-# -----------------------------
+#Average price
 @app.route("/avg-price")
 def avg_price():
     conn = get_db_connection()
@@ -63,11 +56,7 @@ def avg_price():
     conn.close()
 
     return jsonify(dict(result))
-
-
-# -----------------------------
-# 4. Top rated products
-# -----------------------------
+#Top rated products
 @app.route("/top-rated")
 def top_rated():
     conn = get_db_connection()
@@ -77,11 +66,7 @@ def top_rated():
     conn.close()
 
     return jsonify([dict(row) for row in products])
-
-
-# -----------------------------
-# 5. Search by name
-# -----------------------------
+#Search by name
 @app.route("/search")
 def search():
     query = request.args.get("q", "")
@@ -99,9 +84,7 @@ def search():
 # if __name__ == "__main__":
 #     app.run(debug=True)
 
-import os
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-

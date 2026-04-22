@@ -9,7 +9,6 @@ def store_data():
 
     conn.commit()
 
-    # ✅ ADD THIS PART (verification)
     test_df = pd.read_sql("SELECT * FROM products LIMIT 5", conn)
     print("\n📊 Sample data from DB:")
     print(test_df)
